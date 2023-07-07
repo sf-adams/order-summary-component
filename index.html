@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla</title>
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <link rel="stylesheet" href="src/styles/header.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
@@ -13,10 +14,23 @@
   </head>
 
   <body>
-    <div class="navbar">
+    <header class="header">
       <a href="index.html">
         <h2>Vanilla</h2>
       </a>
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--
+    <div class="navbar">
+
 
       <a href="cart.html">
         <div class="cart">
@@ -24,7 +38,7 @@
           <div id="cartAmount" class="cartAmount">0</div>
         </div>
       </a>
-    </div>
+    </div> -->
 
     <div class="shop" id="shop"></div>
   </body>
