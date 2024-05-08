@@ -1,0 +1,145 @@
+/* It is common to use the :root psuedo-class, so that custom properties can be applied globally across your HTML document */
+:root {
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --dark-blue: hsl(223, 47%, 23%);
+}
+
+/* The universal selector, or wildcard, will match elements of any type. It is used here to implement border-box and reset the margins on all elements. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--pale-blue);
+  background-image: url("./images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: contain; /* This property is used to scale the background image to fit the container, while maintaining its aspect ratio. */
+  font-family: "Red Hat Display", sans-serif;
+  line-height: 1.75;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background-color: white;
+  max-width: 360px;
+  overflow: hidden;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.card__image {
+  max-width: 100%;
+}
+
+.summary {
+  padding: 1.5rem;
+}
+
+/* Lobotomized owl is used to select all direct children of the .summary element, and apply a top margin to them. It doesn't include the first child, so that the title is not affected. */
+.summary > * + * {
+  margin-top: 1.5rem;
+}
+
+.summary__title {
+  font-weight: 900;
+  line-height: 1;
+  color: var(--dark-blue);
+}
+
+.summary__text {
+  color: var(--desaturated-blue);
+  font-weight: lighter;
+}
+
+.plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--very-pale-blue);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.plan__wrapper {
+  text-align: left;
+}
+
+.plan__title {
+  font-weight: 900;
+  color: var(--dark-blue);
+}
+
+.plan__price {
+  color: var(--desaturated-blue);
+  margin-right: 3rem;
+}
+
+.plan__link {
+  color: var(--bright-blue);
+  font-weight: 700;
+}
+
+.plan__link:hover {
+  color: var(--desaturated-blue);
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.summary__payment {
+  background-color: var(--bright-blue);
+  color: hsl(0, 0%, 100%);
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px hsla(245, 75%, 52%, 0.4);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.summary__payment:hover {
+  background-color: hsl(245, 75%, 60%);
+  transform: translateY(-0.125rem);
+}
+
+.summary__cancel {
+  background-color: transparent;
+  color: var(--desaturated-blue);
+  margin-bottom: 1rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.summary__cancel:hover {
+  color: var(--dark-blue);
+  transform: translateY(-0.125rem);
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url("./images/pattern-background-desktop.svg");
+  }
+
+  .card {
+    max-width: 400px;
+  }
+
+  .summary {
+    padding: 1rem 3rem;
+    margin: 1rem 0;
+  }
+}
